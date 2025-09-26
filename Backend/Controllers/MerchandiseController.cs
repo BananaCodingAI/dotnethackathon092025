@@ -20,7 +20,7 @@ public class MerchandiseController : ControllerBase
                 Description = "Comfortable hoodie with company logo",
                 Category = "Apparel",
                 BasePriceBBcoin = 150,
-                ImageUrl = "https://example.com/hoodie.jpg",
+                ImageUrl = "/assets/images/hoodie.jpg",
                 Vendor = new VendorDto
                 {
                     VendorId = Guid.NewGuid(),
@@ -52,7 +52,7 @@ public class MerchandiseController : ControllerBase
                 Description = "Ceramic mug with company branding",
                 Category = "Office Supplies",
                 BasePriceBBcoin = 25,
-                ImageUrl = "https://example.com/mug.jpg",
+                ImageUrl = "/assets/images/mug.jpg",
                 Vendor = new VendorDto
                 {
                     VendorId = Guid.NewGuid(),
@@ -91,7 +91,7 @@ public class MerchandiseController : ControllerBase
             Description = "Comfortable hoodie with company logo. Made from premium cotton blend.",
             Category = "Apparel",
             BasePriceBBcoin = 150,
-            ImageUrl = "https://example.com/hoodie.jpg",
+            ImageUrl = "/assets/images/hoodie.jpg",
             Vendor = new VendorDto
             {
                 VendorId = Guid.NewGuid(),
