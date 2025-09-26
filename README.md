@@ -1,13 +1,14 @@
-# .NET Hackathon 092025
+# Shopping Merchandise Portal
 
-This project demonstrates a full-stack web application architecture using Angular (frontend) and ASP.NET Core Web API (backend), with RESTful API communication between the two components.
+A corporate shopping merchandise portal built with Angular frontend and ASP.NET Core Web API backend, designed for employees to browse and purchase company-branded merchandise using BBcoin (virtual currency).
 
 ## Architecture
 
-- **Frontend**: Angular 20.3.2 (latest stable version)
-- **Backend**: ASP.NET Core 8.0 Web API
+- **Frontend**: Angular 20.3.2 with Standalone Components, Angular Material, and NgRx for state management
+- **Backend**: ASP.NET Core 8.0 Web API following Clean Architecture principles
 - **Communication**: RESTful API endpoints with CORS support
 - **Data Format**: JSON
+- **Currency**: BBcoin (virtual corporate currency)
 
 ## Project Structure
 

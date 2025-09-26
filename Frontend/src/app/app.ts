@@ -1,13 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { WeatherComponent } from './components/weather/weather';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, WeatherComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Frontend');
+  protected readonly title = signal('Shopping Merchandise Portal');
 }
