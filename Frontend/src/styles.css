@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+/* Custom theme colors based on corporate yellow/black */
+.mat-mdc-button.mat-primary {
+  --mdc-text-button-label-text-color: #333;
+}
+
+.mat-mdc-raised-button.mat-primary {
+  --mdc-filled-button-container-color: #ffd600;
+  --mdc-filled-button-label-text-color: #333;
+}
+
+.mat-mdc-raised-button.mat-primary:hover {
+  --mdc-filled-button-container-color: #ffcc00;
+}
