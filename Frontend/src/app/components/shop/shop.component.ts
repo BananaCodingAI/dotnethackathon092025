@@ -35,7 +35,7 @@ import { Inject } from '@angular/core';
     <div class="shop-container">
       <div class="header-section">
         <h2 class="shop-title">
-          <mat-icon class="title-icon">store</mat-icon>
+          <span class="title-icon">🛒</span>
           Shop Merchandise
         </h2>
         <p class="shop-subtitle">Discover amazing products with intelligent image analysis</p>
@@ -60,12 +60,12 @@ import { Inject } from '@angular/core';
                  class="clickable-image">
             
             <div class="zoom-indicator" *ngIf="item.imageLoaded">
-              <mat-icon>zoom_in</mat-icon>
+              <span class="zoom-icon">🔍</span>
             </div>
             
             <div class="image-overlay" [class.visible]="item.showOverlay">
               <div class="overlay-content">
-                <mat-icon>analytics</mat-icon>
+                <span class="analytics-icon">🤖</span>
                 <span>AI Analysis</span>
               </div>
             </div>
@@ -75,7 +75,7 @@ import { Inject } from '@angular/core';
             </div>
             
             <div class="image-badge" *ngIf="item.analysisComplete">
-              <mat-icon matBadge="✓" matBadgeColor="accent">verified</mat-icon>
+              <span class="verified-icon" title="AI Verified">✓</span>
             </div>
           </div>
           
@@ -86,7 +86,7 @@ import { Inject } from '@angular/core';
             </div>
             <div class="rating-section" *ngIf="item.aiRating">
               <div class="ai-rating">
-                <mat-icon class="star-icon">star</mat-icon>
+                <span class="star-icon">⭐</span>
                 <span>{{ item.aiRating }}/5</span>
               </div>
             </div>
@@ -97,20 +97,20 @@ import { Inject } from '@angular/core';
             
             <div class="ai-insights" *ngIf="item.aiInsights">
               <div class="insight-chip">
-                <mat-icon>psychology</mat-icon>
+                <span class="psychology-icon">🧠</span>
                 <span>{{ item.aiInsights }}</span>
               </div>
             </div>
             
             <div class="price-section">
               <div class="price">
-                <mat-icon class="price-icon">paid</mat-icon>
+                <span class="price-icon">💰</span>
                 <span class="price-amount">{{ item.basePriceBBcoin }}</span>
                 <span class="currency">BBcoin</span>
               </div>
               <div class="value-badge" *ngIf="item.isGoodValue">
                 <mat-chip color="accent">
-                  <mat-icon>trending_up</mat-icon>
+                  <span class="trend-icon">📈</span>
                   Great Value
                 </mat-chip>
               </div>
@@ -118,7 +118,7 @@ import { Inject } from '@angular/core';
             
             <mat-chip-set class="vendor-chips">
               <mat-chip color="primary" class="vendor-chip">
-                <mat-icon>business</mat-icon>
+                <span class="business-icon">🏢</span>
                 {{ item.vendor.name }}
               </mat-chip>
             </mat-chip-set>
@@ -129,7 +129,7 @@ import { Inject } from '@angular/core';
                     color="primary"
                     class="details-btn"
                     (click)="viewDetails(item.merchandiseId)">
-              <mat-icon>visibility</mat-icon>
+              <span class="visibility-icon">👁️</span>
               View Details
             </button>
             <button mat-raised-button 
@@ -137,7 +137,7 @@ import { Inject } from '@angular/core';
                     class="cart-btn"
                     (click)="quickAddToCart(item)"
                     [disabled]="item.variants.length === 0">
-              <mat-icon>add_shopping_cart</mat-icon>
+              <span class="cart-icon">🛒</span>
               Add to Cart
             </button>
           </mat-card-actions>
@@ -151,7 +151,7 @@ import { Inject } from '@angular/core';
                 (click)="analyzeAllImages()"
                 *ngIf="!allAnalyzed"
                 matTooltip="Analyze All Images with AI">
-          <mat-icon>auto_awesome</mat-icon>
+          <span class="awesome-icon">✨</span>
         </button>
       </div>
     </div>
@@ -181,10 +181,8 @@ import { Inject } from '@angular/core';
       margin: 0 0 8px 0;
       font-size: 2.5rem;
       font-weight: 600;
-      background: linear-gradient(45deg, #ffd600, #ff8f00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #ff8f00;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     
     .title-icon {
@@ -192,6 +190,8 @@ import { Inject } from '@angular/core';
       width: 2.5rem;
       height: 2.5rem;
       color: #ffd600;
+      display: inline-block;
+      text-align: center;
     }
     
     .shop-subtitle {
@@ -296,11 +296,12 @@ import { Inject } from '@angular/core';
       font-weight: 600;
     }
     
-    .overlay-content mat-icon {
+    .overlay-content span.analytics-icon {
       font-size: 2rem;
       width: 2rem;
       height: 2rem;
       margin-bottom: 8px;
+      display: block;
     }
     
     .loading-indicator {
@@ -365,10 +366,27 @@ import { Inject } from '@angular/core';
       font-size: 1rem;
       width: 1rem;
       height: 1rem;
+      display: inline-block;
+    }
+    
+    .zoom-icon,
+    .verified-icon,
+    .awesome-icon {
+      font-size: inherit;
+      display: inline-block;
+    }
+    
+    .verified-icon {
+      color: #4caf50;
+      font-weight: bold;
+      font-size: 1.2rem;
     }
     
     .enhanced-content {
       padding: 8px 16px 16px 16px;
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.9);
     }
     
     .description {
@@ -393,10 +411,12 @@ import { Inject } from '@angular/core';
       font-weight: 500;
     }
     
-    .insight-chip mat-icon {
+    .insight-chip span.psychology-icon {
       font-size: 1rem;
       width: 1rem;
       height: 1rem;
+      display: inline-block;
+      margin-right: 6px;
     }
     
     .price-section {
@@ -410,11 +430,31 @@ import { Inject } from '@angular/core';
       display: flex;
       align-items: center;
       gap: 8px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .price-icon,
+    .trend-icon,
+    .business-icon {
+      color: #2e7d32;
+      font-size: 1.2rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      display: inline-block;
+      text-align: center;
     }
     
     .price-icon {
       color: #2e7d32;
-      font-size: 1.2rem;
+    }
+    
+    .trend-icon {
+      color: #00bcd4;
+    }
+    
+    .business-icon {
+      color: #333;
     }
     
     .price-amount {
@@ -434,15 +474,18 @@ import { Inject } from '@angular/core';
       height: 24px;
     }
     
-    .value-badge mat-icon {
+    .value-badge span.trend-icon {
       font-size: 0.9rem;
       width: 0.9rem;
       height: 0.9rem;
       margin-right: 4px;
+      display: inline-block;
     }
     
     .vendor-chips {
       margin-top: 12px;
+      position: relative;
+      z-index: 2;
     }
     
     .vendor-chip {
@@ -451,9 +494,12 @@ import { Inject } from '@angular/core';
       font-weight: 600;
     }
     
-    .vendor-chip mat-icon {
+    .vendor-chip span.business-icon {
       margin-right: 6px;
       font-size: 1rem;
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
     }
     
     .enhanced-actions {
@@ -466,9 +512,10 @@ import { Inject } from '@angular/core';
       font-weight: 600;
     }
     
-    .details-btn mat-icon {
+    .details-btn span.visibility-icon {
       margin-right: 6px;
       font-size: 1.1rem;
+      display: inline-block;
     }
     
     .cart-btn {
@@ -483,9 +530,10 @@ import { Inject } from '@angular/core';
       transform: translateY(-2px);
     }
     
-    .cart-btn mat-icon {
+    .cart-btn span.cart-icon {
       margin-right: 6px;
       font-size: 1.1rem;
+      display: inline-block;
     }
     
     /* Animation for card loading */
