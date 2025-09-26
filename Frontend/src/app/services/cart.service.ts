@@ -8,7 +8,7 @@ import { Cart, CartItem, AddToCartRequest } from '../models/cart.model';
   providedIn: 'root'
 })
 export class CartService {
-  private apiUrl = 'http://localhost:5290/api/cart';
+  private apiUrl = 'http://localhost:5291/api/cart';
   private cartSubject = new BehaviorSubject<Cart | null>(null);
   public cart$ = this.cartSubject.asObservable();
 

@@ -119,8 +119,98 @@ export class ShopComponent implements OnInit {
       },
       error: (error) => {
         console.error('Failed to load merchandise:', error);
+        // Fallback to mock data for demo purposes when API is unavailable
+        console.warn('Using mock data due to API error');
+        this.loadMockData();
       }
     });
+  }
+
+  loadMockData(): void {
+    // Mock data for demonstration
+    this.merchandise = [
+      {
+        merchandiseId: 'fb743680-8f68-40e0-80a6-288957b2d2f8',
+        name: 'Corporate Hoodie',
+        description: 'Comfortable and stylish hoodie with premium company logo',
+        category: 'Apparel',
+        basePriceBBcoin: 150,
+        imageUrl: 'https://via.placeholder.com/300x200/2C3E50/FFFFFF?text=Corporate+Hoodie',
+        vendor: {
+          vendorId: 'eacde810-152e-4ee9-994f-6034fdcc0631',
+          name: 'Apparel Co',
+          contactEmail: 'orders@apparelco.com'
+        },
+        variants: [
+          {
+            variantId: '86d52ac6-8111-482f-b973-f9586ecd519d',
+            variantLabel: 'Navy - Medium',
+            vendorSku: 'HOODIE-NAVY-M',
+            priceBBcoin: 150
+          },
+          {
+            variantId: '5b8db55e-cb25-45b3-86b9-6031d02a0a7d',
+            variantLabel: 'Navy - Large',
+            vendorSku: 'HOODIE-NAVY-L',
+            priceBBcoin: 160
+          }
+        ]
+      },
+      {
+        merchandiseId: '4f0c554e-c2e8-4255-87b7-1d9308276798',
+        name: 'Company Mug',
+        description: 'Premium ceramic mug featuring the company logo and branding',
+        category: 'Office Supplies',
+        basePriceBBcoin: 25,
+        imageUrl: 'https://via.placeholder.com/300x200/34495E/FFFFFF?text=Company+Mug',
+        vendor: {
+          vendorId: '4f71c99f-07cc-4f74-80a4-1c087fa7b1c2',
+          name: 'Office Supplies Ltd',
+          contactEmail: 'orders@officesupplies.com'
+        },
+        variants: [
+          {
+            variantId: '2531c17c-ec50-4f69-826a-7d00383d82d1',
+            variantLabel: 'White - Standard',
+            vendorSku: 'MUG-WHITE-STD',
+            priceBBcoin: 25
+          }
+        ]
+      },
+      {
+        merchandiseId: '123e4567-e89b-12d3-a456-426614174000',
+        name: 'Corporate T-Shirt',
+        description: 'High-quality cotton t-shirt with company logo',
+        category: 'Apparel',
+        basePriceBBcoin: 75,
+        imageUrl: 'https://via.placeholder.com/300x200/ffd600/333333?text=Corporate+T-Shirt',
+        vendor: {
+          vendorId: '123e4567-e89b-12d3-a456-426614174000',
+          name: 'Premium Apparel Co.',
+          contactEmail: 'contact@premiumapparel.com'
+        },
+        variants: [
+          {
+            variantId: '123e4567-e89b-12d3-a456-426614174001',
+            variantLabel: 'Small - White',
+            vendorSku: 'CORP-TSHIRT-S-WHT',
+            priceBBcoin: 75
+          },
+          {
+            variantId: '123e4567-e89b-12d3-a456-426614174002',
+            variantLabel: 'Medium - White',
+            vendorSku: 'CORP-TSHIRT-M-WHT',
+            priceBBcoin: 75
+          },
+          {
+            variantId: '123e4567-e89b-12d3-a456-426614174003',
+            variantLabel: 'Large - Navy Blue',
+            vendorSku: 'CORP-TSHIRT-L-NAVY',
+            priceBBcoin: 85
+          }
+        ]
+      }
+    ];
   }
 
   viewDetails(merchandiseId: string): void {
